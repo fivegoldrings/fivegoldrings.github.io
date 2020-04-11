@@ -18,20 +18,26 @@ Is this the regression line of $x$ on $y$? </p>
 
   <h2> Answer </h2>
   In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. Then it is intuitively clear (and true!) that
-  $c=0$ for both regression lines. Let's find For the regression line of $y$ on $x$ we get $y=mx$ where
+  $c=0$ for both regression lines. Let's find the regression line for $y$ on $x$ in the form $y=mx$. We get
  
-  \[ m = argmin(\sum_{i,j} (y_i - x_{ij} x_{j})^2) = \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}} \]
+  \[ m = argmin_a(\sum_{i,j} (y_i - a x_{j})^2) = \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}}
+  =r(x,y)  \sqrt{\frac{y_i y_i}{x_i x_i}} \]
   
-  hence, a necessary and sufficent condition for the regression of $x$ on $y$ to be the reciprocal of this is that the 
-  correlation coefficient between $x$ and $y$ be $\pm 1$.
+  Swapping $x$ and $y$ around we get the regression line for $x$ and $y$ in the form $x=m' y$, where
   
+   \[ m' = r(y,x)  \sqrt{\frac{x_i x_i}{y_i y_i}} \]
+  
+  Since the correlation $r(x,y)$ is symmetric in $x$ and $y$, a necessary and sufficient condition for $m'$ to be the reciprocal of $m$
+  is that $r(x,y) = \pm 1$. And in general this does not hold.  
 
 <h2>Discussion</h2>
 
-<p>What is wrong with the following argument? "Comparing the scatterplots of $x vs y$ and $y vs x$, we see that they are
-  related by reflecting in the line $y=x$. This is an isometry, and hence the best line for regressing $y$ on $x$ will be
-  transformed to the best line for regressing $x$ on $y$. Since $y=mx$ gets sent to $\tilde{y}=\frac{1}{m} \tilde{x}$ we
-  do indeed just take the reciprocal gradient as expected." </p>
+  <p>What is wrong with the following argument for why $m$ and $m'$ <strong>should</strong> always be reciprocal?
+  "Comparing the scatterplots of $x vs y$ and $y vs x$, we see that they are
+  related by reflecting in the line $y=x$. This is an isometry, and so preserves all lengths. Since regression is about
+  minimising a sum of squares of lengths, the best line for regressing $y$ on $x$ will be
+  transformed to the best line for regressing $x$ on $y$. Thus rearranging the formula for one line regression line will
+  always give the other" </p>
   
   <p> I believe that the answer is that we are solving two <strong>different</strong> optimisation problems when regressing
     $x$ on $y$ vs $y$ on $x$. One aims to minimise the sum of squared lengths of some <strong>vertical</strong> line segments,
