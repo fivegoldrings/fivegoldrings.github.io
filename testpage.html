@@ -9,6 +9,10 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 </head>
 <body>
 
+ <em> This page was written so I could practise using LaTeX/TeX on Github Pages. Thanks to Vincent Tam's
+   <a href="https://vincenttam.github.io/blog/2014/11/09/mathjax-local-configuration-file/tutorial"> page </a>
+  for showing me how to do it! </em>
+  
 <h2>Question</h2>
   
 <p>Suppose we have some data $x_1, x_2, \dots, x_n$ and $y_1, y_2, \dots y_n$. 
@@ -20,7 +24,7 @@ Is this the regression line of $x$ on $y$? </p>
   In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. Then it is intuitively clear (and true!) that
   $c=0$ for both regression lines. Let's find the regression line for $y$ on $x$ in the form $y=mx$. We get
  
-  \[ m = argmin_a(\sum_{i,j} (y_i - a x_{j})^2) = \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}}
+  \[ m = \argmin_a(\sum_{i} (y_i - a x_{i})^2) = \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}}
   =r(x,y)  \sqrt{\frac{y_i y_i}{x_i x_i}} \]
   
   Swapping $x$ and $y$ around we get the regression line for $x$ and $y$ in the form $x=m' y$, where
@@ -33,7 +37,7 @@ Is this the regression line of $x$ on $y$? </p>
 <h2>Discussion</h2>
 
   <p>What is wrong with the following argument for why $m$ and $m'$ <strong>should</strong> always be reciprocal?
-  "Comparing the scatterplots of $x vs y$ and $y vs x$, we see that they are
+  "Comparing the scatterplots of $x$ vs $y$ and $y$ vs $x$, we see that they are
   related by reflecting in the line $y=x$. This is an isometry, and so preserves all lengths. Since regression is about
   minimising a sum of squares of lengths, the best line for regressing $y$ on $x$ will be
   transformed to the best line for regressing $x$ on $y$. Thus rearranging the formula for one line regression line will
