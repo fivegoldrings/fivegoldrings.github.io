@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Don't delete!</title>
+<title>Regression in 2D</title>
 <script type="text/javascript" charset="utf-8" src="
 https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
 https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
@@ -15,16 +15,18 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
   
 <h2>Question</h2>
   
-<p>Suppose we have some data $x_1, x_2, \dots, x_n$ and $y_1, y_2, \dots y_n$. 
+<p>Suppose we have some data $x_1, x_2, \dots, x_n$ and $y_1, y_2, \dots y_n$ ($x_i, y_i \in \mathbb{R}$). 
 Then we can calculate the regression line of $y$ on $x$. 
 Let's say that we get $y=mx+c$, and rearrange to get $x=\frac{1}{m}y - \frac{c}{m}$.
 Is this the regression line of $x$ on $y$? </p>
 
   <h2> Answer </h2>
-  In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. Then it is intuitively clear (and true!) that
-  $c=0$ for both regression lines. Let's find the regression line for $y$ on $x$ in the form $y=mx$. We get
+  In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. It is intuitively clear (and true) that regression lines 
+ always pass through the mean point $(\frac{\sum x_i}{n}, \frac{\sum y_i}{n})=(0,0)$. So the equations of the regression line of
+ $y$ on $x$ must be of the form $y = m x$. Using the Einstein summation convention,
+ we get
  
-  \[ m = \argmin_a(\sum_{i} (y_i - a x_{i})^2) = \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}}
+  \[ m = \text{argmin}_a((y_i - a x_{i})^2) = \frac{x_i y_i}{x_i x_i} \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}}
   =r(x,y)  \sqrt{\frac{y_i y_i}{x_i x_i}} \]
   
   Swapping $x$ and $y$ around we get the regression line for $x$ and $y$ in the form $x=m' y$, where
@@ -34,18 +36,17 @@ Is this the regression line of $x$ on $y$? </p>
   Since the correlation $r(x,y)$ is symmetric in $x$ and $y$, a necessary and sufficient condition for $m'$ to be the reciprocal of $m$
   is that $r(x,y) = \pm 1$. And in general this does not hold.  
 
-<h2>Discussion</h2>
+<h2>To Think About</h2>
 
-  <p>What is wrong with the following argument for why $m$ and $m'$ <strong>should</strong> always be reciprocal?
+  <p>What is wrong with the following argument for why $m'$ and $m$ should always be reciprocal?
   "Comparing the scatterplots of $x$ vs $y$ and $y$ vs $x$, we see that they are
   related by reflecting in the line $y=x$. This is an isometry, and so preserves all lengths. Since regression is about
   minimising a sum of squares of lengths, the best line for regressing $y$ on $x$ will be
-  transformed to the best line for regressing $x$ on $y$. Thus rearranging the formula for one line regression line will
-  always give the other" </p>
+  transformed to the best line for regressing $x$ on $y$. Reflection transforms $y=mx$ to $x=my$, or $y=\frac{1}{m}x$. This
+  appears to prove that $m$ and $m'$ are always reciprocal. </p>
   
-  <p> I believe that the answer is that we are solving two <strong>different</strong> optimisation problems when regressing
-    $x$ on $y$ vs $y$ on $x$. One aims to minimise the sum of squared lengths of some <strong>vertical</strong> line segments,
-    whilst the other aims to minimise the sum of squared lengths of <strong>horizontal</strong> line segments. </p>
+  <p> \textbf{Hint}: When regressing $y$ on $x$, we are trying to minimise the sum of squared lengths of some vertical
+   line segments. But when regressing $x$ on $y$, the line segments are horizontal. </p>
 
 </body>
 </html>
