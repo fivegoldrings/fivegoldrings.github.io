@@ -23,18 +23,18 @@ Is this the regression line of $x$ on $y$? </p>
   <h2> Answer </h2>
   In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. One can show that regression lines 
  always pass through the mean point $(\frac{\sum x_i}{n}, \frac{\sum y_i}{n})=(0,0)$. So the equation of the regression line of
- $y$ on $x$ must be of the form $y = m x$ for some $m \in \mathbb{R}$. Using the Einstein summation convention,
- we get
+ $y$ on $x$ must be of the form $y = m x$ for some $m \in \mathbb{R}$. We get
  
-  \[ m = \text{argmin}_a((y_i - a x_{i})^2) = \frac{x_i y_i}{x_i x_i} = \frac{x_i y_i}{\sqrt{x_i x_i} \sqrt{y_i y_i}} \sqrt{\frac{y_i y_i}{x_i x_i}}
-  =r(x,y)  \sqrt{\frac{y_i y_i}{x_i x_i}} \]
+  \[ m = \text{argmin}_a(\sum_i (y_i - a x_{i})^2) = \frac{\sum_i x_i y_i}{\sum_i x_i x_i} 
+ = \frac{\sum_i x_i y_i}{\sqrt{ \sum_i x_i x_i} \sqrt{ \sum_i y_i y_i}} \sqrt{\frac{\sum_i y_i y_i}{\sum_i x_i x_i}}
+  =r(x,y)  \sqrt{\frac{\sum_i y_i y_i}{\sum_i x_i x_i}} \]
   
-  Swapping $x$ and $y$ around we get the regression line for $x$ and $y$ in the form $x=m' y$, where
+  Swapping $x$ and $y$ around we get the regression line for $x$ on $y$ in the form $x=m' y$, where
   
-   \[ m' = r(y,x)  \sqrt{\frac{x_i x_i}{y_i y_i}} \]
+   \[ m' = r(y,x)  \sqrt{\frac{\sum_i x_i x_i}{\sum_i y_i y_i}} \]
   
   Since the correlation $r(x,y)$ is symmetric in $x$ and $y$, a necessary and sufficient condition for $m'$ to be the reciprocal of $m$
-  is that $r(x,y) = \pm 1$. And in general this does not hold.  
+  is that $r(x,y) = \pm 1$, which in general does not hold.  
 
 <h2>To Think About</h2>
 
