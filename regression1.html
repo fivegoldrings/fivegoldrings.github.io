@@ -25,13 +25,13 @@ Is this the regression line of $x$ on $y$? </p>
  always pass through the mean point $(\frac{\sum x_i}{n}, \frac{\sum y_i}{n})=(0,0)$. So the equation of the regression line of
  $y$ on $x$ must be of the form $y = m x$ for some $m \in \mathbb{R}$. We get
  
-  \[ m = \text{argmin}_a(\sum_i (y_i - a x_{i})^2) = \frac{\sum_i x_i y_i}{\sum_i x_i x_i} 
- = \frac{\sum_i x_i y_i}{\sqrt{ \sum_i x_i x_i} \sqrt{ \sum_i y_i y_i}} \sqrt{\frac{\sum_i y_i y_i}{\sum_i x_i x_i}}
-  =r(x,y)  \sqrt{\frac{\sum_i y_i y_i}{\sum_i x_i x_i}} \]
+  \[ m = \text{argmin}_a(\sum_i (y_i - a x_{i})^2) = \frac{\sum x_i y_i}{\sum x_i x_i} 
+ = \frac{\sum x_i y_i}{\sqrt{ \sum x_i x_i} \sqrt{ \sum y_i y_i}} \sqrt{\frac{\sum y_i y_i}{\sum x_i x_i}}
+  =r(x,y)  \sqrt{\frac{\sum y_i y_i}{\sum x_i x_i}} \]
   
   Swapping $x$ and $y$ around we get the regression line for $x$ on $y$ in the form $x=m' y$, where
   
-   \[ m' = r(y,x)  \sqrt{\frac{\sum_i x_i x_i}{\sum_i y_i y_i}} \]
+   \[ m' = r(y,x)  \sqrt{\frac{\sum x_i x_i}{\sum y_i y_i}} \]
   
   Since the correlation $r(x,y)$ is symmetric in $x$ and $y$, a necessary and sufficient condition for $m'$ to be the reciprocal of $m$
   is that $r(x,y) = \pm 1$, which in general does not hold.  
