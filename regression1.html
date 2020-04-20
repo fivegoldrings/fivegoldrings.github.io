@@ -16,12 +16,12 @@ https://vincenttam.github.io/javascripts/MathJaxLocal.js"></script>
 <h2>Question</h2>
   
 <p>Suppose we have some data $x_1, x_2, \dots, x_n$ and $y_1, y_2, \dots y_n$ ($x_i, y_i \in \mathbb{R}$). 
-Then we can calculate the regression line of $y$ on $x$. 
+Then we can calculate the (ordinary least squares) regression line of $y$ on $x$. 
 Let's say that we get $y=mx+c$, and rearrange to get $x=\frac{1}{m}y - \frac{c}{m}$.
 Is this the regression line of $x$ on $y$? </p>
 
   <h2> Answer </h2>
-  In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. It is intuitively clear (and true) that regression lines 
+  In general, no. For simplicity assume that $\sum x_i = \sum y_i = 0$. One can show that regression lines 
  always pass through the mean point $(\frac{\sum x_i}{n}, \frac{\sum y_i}{n})=(0,0)$. So the equation of the regression line of
  $y$ on $x$ must be of the form $y = m x$ for some $m \in \mathbb{R}$. Using the Einstein summation convention,
  we get
